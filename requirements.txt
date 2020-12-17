@@ -1,0 +1,2 @@
+fritzconnection==1.4.0
+influxdb==5.3.1
