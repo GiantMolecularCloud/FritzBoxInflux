@@ -8,7 +8,7 @@ Tested on a FritzBox 7490 with FritzOS 7.12, might crash on other models and/or 
 
 ## Docker
 
-The image is available on ![https://hub.docker.com/r/giantmolecularcloud/fritzboxinflux](Docker Hub).
+The image is available on [Docker Hub](https://hub.docker.com/r/giantmolecularcloud/fritzboxinflux).
 Note that it will likely get taken down in the future under Docker's policy to take down images that are not regularly accessed.
 
 Build it yourself:
