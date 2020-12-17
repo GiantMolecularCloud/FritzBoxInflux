@@ -60,3 +60,8 @@ An example for a Grafana dasboard to show the most relevant FritzBox metrics cou
 The code for this dashboard is in ![https://github.com/GiantMolecularCloud/FritzBoxInflux/blob/main/dashboard.json](dashboard.json)
 
 ![Grafana dashboard](https://github.com/GiantMolecularCloud/FritzBoxInflux/blob/main/dashboard.png "Grafana dashboard")
+
+
+## Logo
+
+The logo was created in a very simple way in Pixelmator ([FritzBoxInflux.pxd](https://github.com/GiantMolecularCloud/FritzBoxInflux/tree/main/FritzBoxInflux.pxd)). Feel free to make something nicer (without violating potentially protected shapes and color combinations).
