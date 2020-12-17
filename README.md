@@ -23,6 +23,8 @@ docker run --init --env-file env-sample fritzboxinflux
 The FritzBox and InfluxDB instance can be selected through the following environment variables.
 If not given, defaults are assumed.
 
+The easiest way to specify all env vars is using an environment file (e.g. [env-sample](https://github.com/GiantMolecularCloud/FritzBoxInflux/blob/main/env-sample)) as in the example above.
+
 `FB_IP`
 IP address of the FritzBox to query. Default if not specified: 192.168.178.1
 
