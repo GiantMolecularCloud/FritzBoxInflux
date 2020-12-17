@@ -1,3 +1,5 @@
+![FritzBoxInflux](https://github.com/GiantMolecularCloud/FritzBoxInflux/blob/main/FritzBoxInflux.png "FritzBoxInflux")
+
 # FritzBoxInflux
 
 A simple python app to query a FritzBox through fritzconnection and send the interesting results to InfluxDB.
@@ -6,7 +8,7 @@ Tested on a FritzBox 7490 with FritzOS 7.12, might crash on other models and/or 
 
 ## Docker
 
-The image is available on !(https://hub.docker.com/r/giantmolecularcloud/fritzboxinflux)[Docker Hub].
+The image is available on ![https://hub.docker.com/r/giantmolecularcloud/fritzboxinflux](Docker Hub).
 Note that it will likely get taken down in the future under Docker's policy to take down images that are not regularly accessed.
 
 Build it yourself:
@@ -16,8 +18,7 @@ docker run --init --env-file env-sample fritzboxinflux
 ```
 
 
-
-## Environment variables
+### Environment variables
 
 The FritzBox and InfluxDB instance can be selected through the following environment variables.
 If not given, defaults are assumed.
@@ -51,3 +52,11 @@ Credentials for the InfluxDB database. Default if not specified: root:root
 
 `SAMPLE_TIME`
 Wait time in between queries in seconds. Default if not specified: 60
+
+
+## Example dashboard
+
+An example for a Grafana dasboard to show the most relevant FritzBox metrics could look like this.
+The code for this dashboard is in ![https://github.com/GiantMolecularCloud/FritzBoxInflux/blob/main/dashboard.json](dashboard.json)
+
+![Grafana dashboard](https://github.com/GiantMolecularCloud/FritzBoxInflux/blob/main/dashboard.png "Grafana dashboard")
