@@ -75,10 +75,6 @@ exclude_lines = [
     'if TYPE_CHECKING:',
 ]
 
-[tool.pytest.ini_options]
-timeout = 300
-testpaths = ["tests"]
-
 [tool.isort]
 multi_line_output = 3
 include_trailing_comma = true
@@ -92,13 +88,15 @@ files = "src"
 allow_redefinition = false
 plugins = ["pydantic.mypy"]
 
+[[tool.mypy.overrides]]
+module = ["influxdb.*", "fritzconnection.*"]
+follow_untyped_imports = true
+
 [tool.poe.tasks]
-isort = {cmd = "isort src tests", help = "Sort imports"}
-black = {cmd = "black -l 120 src tests", help = "Format source code"}
+isort = {cmd = "isort src", help = "Sort imports"}
+black = {cmd = "black -l 120 src", help = "Format source code"}
 format = {sequence = ["isort", "black"], help = "Format source code & sort imports"}
 lint = {cmd = "flake8 --max-cognitive-complexity=15 src", help = "Lint and complexity score for source code"}
 mypy = {cmd = "mypy src", help = "Type check code"}
-test = {cmd = "pytest --cov=src --cov-config=pyproject.toml", help = "Run test suite"}
-docs = {cmd = "sphinx-build docs docs/_build", help = "Build documentation"}
-precommit = {sequence = ["format", "lint", "mypy", "test", "docs"], help = "Prepare for commit"}
+precommit = {sequence = ["format", "lint", "mypy"], help = "Prepare for commit"}
 tag = { shell = "git tag -a `poetry version -s` -m v`poetry version -s`", help = "Create git tag for current version" }

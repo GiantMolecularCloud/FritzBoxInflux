@@ -1,7 +1,8 @@
 import influxdb.exceptions as inexc
+from influxdb import InfluxDBClient
 
 
-def write_database(client, data):
+def write_database(client: InfluxDBClient, data: list[dict]) -> None:
     """
     Writes a given data record to the database and prints unexpected results.
     Copy/paste from my homeclimate code.
@@ -9,7 +10,7 @@ def write_database(client, data):
     from datetime import datetime
 
     try:
-        iresponse  = client.write_points(data)
+        iresponse = client.write_points(data)
         if not iresponse:
             print("Sending data to database failed. Response: ", iresponse)
     except inexc.InfluxDBServerError as e:

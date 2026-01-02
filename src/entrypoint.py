@@ -26,40 +26,33 @@ from influxdb import InfluxDBClient
 from .fritzbox_data import FritzBoxData
 from .io import write_database
 
-
 # read in environment variables, set some defaults if env vars are not defined
-FB_IP         = os.getenv('FB_IP') or '192.168.178.1'
-FB_PORT       = os.getenv('FB_PORT') or '49000'
-FB_USER       = os.getenv('FB_USER')
-FB_PASSWD     = os.getenv('FB_PASSWD')
-FB_ID         = os.getenv('FB_ID') or 'FritzBox'
-FB_DSL        = bool(os.getenv('FB_DSL')) or True
-INFLUX_IP     = os.getenv('INFLUX_IP') or '127.0.0.1'
-INFLUX_PORT   = int(os.getenv('INFLUX_PORT') or 8086)
-INFLUX_USER   = os.getenv('INFLUX_USER') or 'root'
-INFLUX_PASSWD = os.getenv('INFLUX_PASSWD') or 'root'
-SAMPLE_TIME   = int(os.getenv('SAMPLE_TIME') or 60)
-
+FB_IP = os.getenv("FB_IP") or "192.168.178.1"
+FB_PORT = os.getenv("FB_PORT") or "49000"
+FB_USER = os.getenv("FB_USER")
+FB_PASSWD = os.getenv("FB_PASSWD")
+FB_ID = os.getenv("FB_ID") or "FritzBox"
+FB_DSL = bool(os.getenv("FB_DSL", True))
+INFLUX_IP = os.getenv("INFLUX_IP", "127.0.0.1")
+INFLUX_PORT = int(os.getenv("INFLUX_PORT", 8086))
+INFLUX_USER = os.getenv("INFLUX_USER", "root")
+INFLUX_PASSWD = os.getenv("INFLUX_PASSWD", "root")
+SAMPLE_TIME = int(os.getenv("SAMPLE_TIME", 60))
 
 
 def main(argv: list[str] | None = None) -> None:
-    FB = FritzBoxData()
-    FB.connect()
+    fb = FritzBoxData()
+    fb.connect()
 
-    # The first read always misses some information. 
+    # The first read always misses some information.
     # Unknown why that happens. Performing a dummy read.
-    FB.read_data()
+    fb.read_data()
 
     # connect to InfluxDB
-    client = InfluxDBClient(
-        host     = INFLUX_IP,
-        port     = INFLUX_PORT,
-        username = INFLUX_USER,
-        password = INFLUX_PASSWD
-    )
+    client = InfluxDBClient(host=INFLUX_IP, port=INFLUX_PORT, username=INFLUX_USER, password=INFLUX_PASSWD)
 
     # create new database if necessary
-    if not FB_ID in [db['name'] for db in client.get_list_database()]:
+    if FB_ID not in [db["name"] for db in client.get_list_database()]:
         client.create_database(FB_ID)
 
     # select current database
@@ -70,14 +63,11 @@ def main(argv: list[str] | None = None) -> None:
         while True:
 
             try:
-                write_database(
-                    client = client,
-                    data   = FB.get_influx_data()
-                )
+                write_database(client=client, data=fb.get_influx_data())
             except Exception as e:
                 print(e)
             finally:
                 time.sleep(SAMPLE_TIME)
 
     except KeyboardInterrupt:
-        print (datetime.now(), "  Program stopped by keyboard interrupt [CTRL_C] by user. ")
+        print(datetime.now(), "  Program stopped by keyboard interrupt [CTRL_C] by user. ")
