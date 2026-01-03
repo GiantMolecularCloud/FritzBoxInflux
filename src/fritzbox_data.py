@@ -1,6 +1,7 @@
 import itertools
 import os
 from datetime import datetime
+import logging
 
 from fritzconnection import FritzConnection
 
@@ -9,6 +10,7 @@ class FritzBoxData:
     """
     Wrapper class to connect to a FritzBox, read out values and format them in InfluxDB format.
     """
+    log = logging.getLogger(__name__)
 
     def __init__(self) -> None:
         """
@@ -39,6 +41,7 @@ class FritzBoxData:
             timeout=self.timeout,
             # use_tls  = True
         )
+        self.log.info(f"Connected to FritzBox at {self.ip}:{self.port}")
 
     def _read_data(self, module: str, action: str) -> dict:
         """
@@ -47,6 +50,7 @@ class FritzBoxData:
         try:
             answer = self.fritzbox.call_action(module, action)  # type:ignore[union-attr]
         except BaseException:
+            self.log.error(f"Error reading data from FritzBox module {module} action {action}")
             answer = {}
         return answer
 
@@ -133,6 +137,7 @@ class FritzBoxData:
             }
         except BaseException:
             self.selected_data["device"] = {}
+            self.log.error("Error selecting device data from FritzBox")
 
         try:
             self.selected_data["connection"] = {
@@ -163,6 +168,7 @@ class FritzBoxData:
             }
         except BaseException:
             self.selected_data["connection"] = {}
+            self.log.error("Error selecting connection data from FritzBox")
 
         try:
             self.selected_data["traffic"] = {
@@ -179,6 +185,7 @@ class FritzBoxData:
             }
         except BaseException:
             self.selected_data["traffic"] = {}
+            self.log.error("Error selecting traffic data from FritzBox")
 
         try:
             self.selected_data["network"] = {
@@ -203,6 +210,7 @@ class FritzBoxData:
             }
         except BaseException:
             self.selected_data["network"] = {}
+            self.log.error("Error selecting network data from FritzBox")
 
     def format_data(self) -> None:
         """
@@ -215,6 +223,7 @@ class FritzBoxData:
             for groupname, group in self.selected_data.items()
             if group != {}
         ]
+        self.log.debug("Formatted InfluxDB data.")
 
     def get_influx_data(self) -> list[dict]:
         """
