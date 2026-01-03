@@ -3,7 +3,9 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "uid": "-- Grafana --"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -13,31 +15,29 @@
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 11,
+  "id": 0,
   "links": [],
   "panels": [
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgba(0, 0, 0, 0)",
+            "fixedColor": "rgb(255, 255, 255)",
             "mode": "fixed"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
+                "value": 0
               }
             ]
           }
@@ -52,22 +52,30 @@
       },
       "id": 38,
       "options": {
-        "colorMode": "background",
+        "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^device\\.last$/",
           "values": false
         },
-        "textMode": "value"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "device",
           "orderByTime": "ASC",
@@ -91,21 +99,21 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "max": 51300000,
           "min": 0,
@@ -114,7 +122,7 @@
             "steps": [
               {
                 "color": "super-light-orange",
-                "value": null
+                "value": 0
               },
               {
                 "color": "light-orange",
@@ -146,6 +154,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "mean"
@@ -153,12 +162,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "current downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "traffic",
           "orderByTime": "ASC",
@@ -188,25 +204,28 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [],
           "thresholds": {
             "mode": "percentage",
             "steps": [
               {
                 "color": "super-light-orange",
-                "value": null
+                "value": 0
               },
               {
                 "color": "light-orange",
@@ -238,6 +257,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "mean"
@@ -245,12 +265,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "average downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -293,29 +320,28 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "semi-dark-orange",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -335,6 +361,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "mean"
@@ -342,12 +369,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "Current Speed",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -391,6 +425,10 @@
         },
         {
           "alias": "DSL Sync Rate",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -428,6 +466,10 @@
         },
         {
           "alias": "DSL Max Sync Rate",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -464,29 +506,29 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgb(255, 255, 255)",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
+          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -510,7 +552,8 @@
         "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "auto",
-        "orientation": "horizontal",
+        "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -518,12 +561,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "1 hour",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -547,7 +597,7 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [],
@@ -559,6 +609,10 @@
         },
         {
           "alias": "1 day",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -582,11 +636,11 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [],
-                "type": "non_negative_difference"
+                "type": "difference"
               }
             ]
           ],
@@ -594,6 +648,10 @@
         },
         {
           "alias": "1 week",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -617,25 +675,26 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [],
-                "type": "non_negative_difference"
+                "type": "difference"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -643,7 +702,6 @@
             "fixedColor": "rgb(255, 255, 255)",
             "mode": "fixed"
           },
-          "custom": {},
           "decimals": 2,
           "mappings": [],
           "thresholds": {
@@ -651,11 +709,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
+                "value": 0
               }
             ]
           }
@@ -675,19 +729,27 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^OS version$/",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "OS version",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -718,29 +780,45 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgba(0, 0, 0, 0.07)",
+            "fixedColor": "rgb(255, 255, 255)",
             "mode": "fixed"
           },
-          "custom": {},
-          "mappings": [],
+          "mappings": [
+            {
+              "options": {
+                "false": {
+                  "color": "dark-green",
+                  "index": 0,
+                  "text": "no update available"
+                },
+                "true": {
+                  "color": "dark-red",
+                  "index": 1,
+                  "text": "update available"
+                }
+              },
+              "type": "value"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "dark-red",
@@ -764,23 +842,31 @@
       "id": 52,
       "interval": "1m",
       "options": {
-        "colorMode": "background",
+        "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^update available$/",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "update available",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -811,14 +897,15 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -826,17 +913,13 @@
             "fixedColor": "rgb(255, 255, 255)",
             "mode": "fixed"
           },
-          "custom": {
-            "align": null,
-            "filterable": false
-          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -856,6 +939,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -863,12 +947,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "uptime",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -899,29 +990,28 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
+      "title": "Uptime",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgb(255, 255, 255)",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -940,19 +1030,27 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^physical link$/",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "physical link",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -983,22 +1081,19 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
+      "title": "Physical Link",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgba(0, 0, 0, 0)",
-            "mode": "fixed"
-          },
-          "custom": {
-            "align": null
+            "mode": "thresholds"
           },
           "mappings": [],
           "thresholds": {
@@ -1006,7 +1101,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -1025,23 +1120,31 @@
       },
       "id": 4,
       "options": {
-        "colorMode": "background",
+        "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^DSL:$/",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "DSL:",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "connection",
           "orderByTime": "ASC",
@@ -1061,18 +1164,21 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
+      "title": "DSL",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [],
           "max": 11136000,
           "min": 0,
@@ -1081,7 +1187,7 @@
             "steps": [
               {
                 "color": "super-light-purple",
-                "value": null
+                "value": 0
               },
               {
                 "color": "light-purple",
@@ -1113,6 +1219,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "mean"
@@ -1120,12 +1227,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "current upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "traffic",
           "orderByTime": "ASC",
@@ -1155,25 +1269,28 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [],
           "thresholds": {
             "mode": "percentage",
             "steps": [
               {
                 "color": "super-light-purple",
-                "value": null
+                "value": 0
               },
               {
                 "color": "light-purple",
@@ -1205,6 +1322,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "mean"
@@ -1212,12 +1330,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "average upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1260,29 +1385,28 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "semi-dark-purple",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -1302,6 +1426,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "mean"
@@ -1309,12 +1434,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "Current Speed",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1358,6 +1490,10 @@
         },
         {
           "alias": "DSL Sync Rate",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1395,6 +1531,10 @@
         },
         {
           "alias": "DSL Max Sync Rate",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1431,29 +1571,29 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgb(255, 255, 255)",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
+          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -1478,6 +1618,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1485,12 +1626,19 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value_and_name",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "1 hour",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1514,11 +1662,11 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [],
-                "type": "non_negative_difference"
+                "type": "difference"
               }
             ]
           ],
@@ -1526,6 +1674,10 @@
         },
         {
           "alias": "1 day",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1549,11 +1701,11 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [],
-                "type": "non_negative_difference"
+                "type": "difference"
               }
             ]
           ],
@@ -1561,6 +1713,10 @@
         },
         {
           "alias": "1 week",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1584,39 +1740,38 @@
               },
               {
                 "params": [],
-                "type": "last"
+                "type": "mean"
               },
               {
                 "params": [],
-                "type": "non_negative_difference"
+                "type": "difference"
               }
             ]
           ],
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgb(255, 255, 255)",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -1636,19 +1791,27 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^connection time$/",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "connection time",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1679,28 +1842,27 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
+      "title": "Connection Time",
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgb(255, 255, 255)",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -1723,19 +1885,27 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/.*/",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "DNS 1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "traffic",
           "orderByTime": "ASC",
@@ -1756,6 +1926,10 @@
         },
         {
           "alias": "DNS 2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "traffic",
           "orderByTime": "ASC",
@@ -1775,29 +1949,38 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
+      "title": "DNS servers",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "pattern": "DNS.*"
+            }
+          }
+        }
+      ],
       "transparent": true,
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "rgb(255, 255, 255)",
-            "mode": "fixed"
+            "mode": "thresholds"
           },
-          "custom": {},
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -1820,19 +2003,27 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "",
+          "fields": "/^public IP$/",
           "values": false
         },
-        "textMode": "value_and_name"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "public IP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "connection",
           "orderByTime": "ASC",
@@ -1852,82 +2043,300 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "",
+      "title": "Public IP",
       "transparent": true,
       "type": "stat"
     },
     {
-      "aliasColors": {
-        "downstream": "dark-orange",
-        "upstream": "dark-purple"
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
       },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "FritzBox",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
           "custom": {
-            "align": null
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "stepAfter",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
+          "max": 56000000,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
-            "steps": [
+            "steps": []
+          },
+          "unit": "bits"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "downstream"
+            },
+            "properties": [
               {
-                "color": "green",
-                "value": null
-              },
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "upstream"
+            },
+            "properties": [
               {
-                "color": "red",
-                "value": 80
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
               }
             ]
           }
-        },
-        "overrides": []
+        ]
       },
-      "fill": 5,
-      "fillGradient": 5,
       "gridPos": {
         "h": 14,
         "w": 14,
         "x": 0,
         "y": 10
       },
-      "hiddenSeries": false,
       "id": 12,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "hideEmpty": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.3.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -1971,6 +2380,10 @@
         },
         {
           "alias": "upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2013,104 +2426,346 @@
           "tags": []
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "DSL traffic",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": null,
-          "format": "bits",
-          "label": null,
-          "logBase": 1,
-          "max": "55000000",
-          "min": "0",
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "attenuation downstream": "light-orange",
-        "attenuation upstream": "light-purple",
-        "noise margin downstream": "dark-orange",
-        "noise margin upstream": "dark-purple"
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
       },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "FritzBox",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "dB"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "attenuation upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "noise margin upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
-      "fill": 10,
-      "fillGradient": 2,
       "gridPos": {
         "h": 7,
         "w": 7,
         "x": 14,
         "y": 10
       },
-      "hiddenSeries": false,
       "id": 30,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.3.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "attenuation downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2154,6 +2809,10 @@
         },
         {
           "alias": "attenuation upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2197,6 +2856,10 @@
         },
         {
           "alias": "noise margin downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2240,6 +2903,10 @@
         },
         {
           "alias": "noise margin upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2282,118 +2949,458 @@
           "tags": []
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "line damping",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "dB",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "CRC downstream": "semi-dark-orange",
-        "CRC upstream": "semi-dark-purple",
-        "FEC downstream": "dark-orange",
-        "FEC upstream": "dark-purple",
-        "HEC downstream": "light-orange",
-        "HEC upstream": "light-purple"
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
       },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "FritzBox",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
-            "steps": [
+            "steps": []
+          },
+          "unit": "errors/s"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC downstream"
+            },
+            "properties": [
               {
-                "color": "green",
-                "value": null
-              },
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC upstream"
+            },
+            "properties": [
               {
-                "color": "red",
-                "value": 80
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CRC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "FEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HEC upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-purple",
+                  "mode": "fixed"
+                }
               }
             ]
           }
-        },
-        "overrides": []
+        ]
       },
-      "fill": 10,
-      "fillGradient": 2,
       "gridPos": {
         "h": 7,
         "w": 7,
         "x": 14,
         "y": 17
       },
-      "hiddenSeries": false,
       "id": 28,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.3.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "HEC downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2435,6 +3442,10 @@
         },
         {
           "alias": "CRC downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2476,6 +3487,10 @@
         },
         {
           "alias": "FEC downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2517,6 +3532,10 @@
         },
         {
           "alias": "HEC upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2558,6 +3577,10 @@
         },
         {
           "alias": "CRC upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2599,6 +3622,10 @@
         },
         {
           "alias": "FEC upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2639,72 +3666,26 @@
           "tags": []
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "connection errors",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "decimals": 0,
-          "format": "errors/s",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 24
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
       },
-      "id": 54,
-      "title": "Row title",
-      "type": "row"
-    },
-    {
-      "datasource": "FritzBox",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -2719,7 +3700,7 @@
         "h": 2,
         "w": 2,
         "x": 0,
-        "y": 25
+        "y": 24
       },
       "id": 44,
       "options": {
@@ -2727,6 +3708,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2734,11 +3716,18 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "network",
           "orderByTime": "ASC",
@@ -2764,23 +3753,26 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": " 2.4 GHz Channel",
       "type": "stat"
     },
     {
-      "datasource": "FritzBox",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "thresholds"
+          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -2791,7 +3783,7 @@
         "h": 2,
         "w": 2,
         "x": 2,
-        "y": 25
+        "y": 24
       },
       "id": 46,
       "options": {
@@ -2799,6 +3791,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2806,11 +3799,18 @@
           "fields": "",
           "values": false
         },
-        "textMode": "value"
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "value",
+        "wideLayout": true
       },
-      "pluginVersion": "7.3.5",
+      "pluginVersion": "12.3.1",
       "targets": [
         {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [],
           "measurement": "network",
           "orderByTime": "ASC",
@@ -2830,69 +3830,466 @@
           "tags": []
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "5 GHz Channel",
       "type": "stat"
     },
     {
-      "aliasColors": {
-        "LAN downstream": "super-light-orange",
-        "LAN upstream": "super-light-purple",
-        "WLAN 2.4 GHz downstream": "semi-dark-orange",
-        "WLAN 2.4 GHz upstream": "semi-dark-purple",
-        "WLAN 5 GHz downstream": "dark-orange",
-        "WLAN 5 GHz upstream": "dark-purple"
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
       },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "FritzBox",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "stepAfter",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
           "unit": "pps"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LAN upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 2.4 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "semi-dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz downstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "WLAN 5 GHz upstream"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
       },
-      "fill": 5,
-      "fillGradient": 5,
       "gridPos": {
         "h": 12,
         "w": 17,
         "x": 4,
-        "y": 25
+        "y": 24
       },
-      "hiddenSeries": false,
       "id": 22,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": true
+        "alertThreshold": true,
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.3.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": true,
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "LAN downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2929,6 +4326,10 @@
         },
         {
           "alias": "LAN upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2964,6 +4365,10 @@
         },
         {
           "alias": "WLAN 2.4 GHz downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -2999,6 +4404,10 @@
         },
         {
           "alias": "WLAN 2.4 GHz upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -3040,6 +4449,10 @@
         },
         {
           "alias": "WLAN 5 GHz downstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -3081,6 +4494,10 @@
         },
         {
           "alias": "WLAN 5 GHz upstream",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -3121,105 +4538,541 @@
           "tags": []
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "local traffic",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "pps",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     },
     {
-      "aliasColors": {
-        "2.4 GHz": "dark-orange",
-        "5.0 GHz": "dark-red",
-        "Clients 2.4 GHz": "dark-orange",
-        "Clients 5.0 GHz": "dark-red",
-        "Clients Guest": "dark-yellow",
-        "guest": "dark-yellow"
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vZjMPU1Mk"
       },
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": "FritzBox",
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 50,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "showValues": false,
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients Guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients Guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients Guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 2.4 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients 5.0 GHz"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Clients Guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "guest"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-yellow",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byValue",
+              "options": {
+                "op": "gte",
+                "reducer": "allIsNull",
+                "value": 0
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": true,
+                  "tooltip": true,
+                  "viz": false
+                }
+              }
+            ]
+          }
+        ]
       },
-      "fill": 3,
-      "fillGradient": 5,
       "gridPos": {
         "h": 10,
         "w": 4,
         "x": 0,
-        "y": 27
+        "y": 26
       },
-      "hiddenSeries": false,
       "id": 42,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "hideEmpty": true,
-        "hideZero": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 2,
-      "nullPointMode": "null",
       "options": {
-        "alertThreshold": false
+        "alertThreshold": false,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
       },
-      "percentage": false,
-      "pluginVersion": "7.3.5",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
+      "pluginVersion": "12.3.1",
       "targets": [
         {
           "alias": "5.0 GHz",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -3257,6 +5110,10 @@
         },
         {
           "alias": "2.4 GHz",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -3294,6 +5151,10 @@
         },
         {
           "alias": "guest",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "vZjMPU1Mk"
+          },
           "groupBy": [
             {
               "params": [
@@ -3330,57 +5191,19 @@
           "tags": []
         }
       ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
       "title": "WLAN Clients",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
+      "type": "timeseries"
     }
   ],
+  "preload": false,
   "refresh": "1h",
-  "schemaVersion": 26,
-  "style": "dark",
+  "schemaVersion": 42,
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-30m",
     "to": "now"
   },
   "timepicker": {
@@ -3397,5 +5220,5 @@
   "timezone": "",
   "title": "FritzBox",
   "uid": "INoNQciRk",
-  "version": 6
+  "version": 17
 }
