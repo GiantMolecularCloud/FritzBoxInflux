@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "FritzBoxInflux"
-version = "0.2.0"
+version = "0.2.1"
 description = "A simple python app to query a FritzBox through fritzconnection and send the interesting results to InfluxDB."
 authors = ["GiantMolecularCloud <26749617+GiantMolecularCloud@users.noreply.github.com>"]
 readme = "README.md"
