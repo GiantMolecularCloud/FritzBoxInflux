@@ -1,7 +1,7 @@
 import itertools
+import logging
 import os
 from datetime import datetime
-import logging
 
 from fritzconnection import FritzConnection
 
@@ -10,6 +10,7 @@ class FritzBoxData:
     """
     Wrapper class to connect to a FritzBox, read out values and format them in InfluxDB format.
     """
+
     log = logging.getLogger(__name__)
 
     def __init__(self) -> None:

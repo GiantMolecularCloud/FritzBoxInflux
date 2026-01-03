@@ -17,16 +17,14 @@ INFLUX_PASSWD   password to access the InfluxDB database
 SAMPLE_TIME     time to wait before getting the next sample
 """
 
+import logging
 import os
 import time
-from datetime import datetime
-import logging
 
 from influxdb import InfluxDBClient
 
 from .fritzbox_data import FritzBoxData
 from .io import write_database
-
 
 log = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s  %(levelname)-8s  %(message)s")

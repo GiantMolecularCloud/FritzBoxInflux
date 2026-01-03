@@ -3,8 +3,8 @@ import logging
 import influxdb.exceptions as inexc
 from influxdb import InfluxDBClient
 
-
 log = logging.getLogger(__name__)
+
 
 def write_database(client: InfluxDBClient, data: list[dict]) -> None:
     """
