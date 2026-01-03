@@ -1,31 +1,42 @@
-# base image: Debian Buster slim with Python 3.9.1
-FROM python:3.9.1-slim-buster
+# The image is built in two stages with caching to allow faster built times and
+# smaller image sizes. The first stage installs the dependencies and the second
+# stage installs the project itself. This way the slow dependencies
+# installation is only done when the dependencies change but not when the
+# project source files change.
 
-# disable pip's cache to reduce image size
-ENV PIP_NO_CACHE_DIR=1
 
-# update pip
-RUN pip install -U \
-    pip \
-    setuptools \
-    wheel
+############################################################
+# Stage 1: Build environment
 
-# change workdir
-WORKDIR /usr/src/FritzBoxInflux
+FROM python:3.13-slim as builder
 
-# create new non-root user
-RUN useradd -m -r user
+ARG POETRY_VERSION=2.1
 
-# install python dependencies
-# copy requirements first to not invalidate the cache when updating the python app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install "poetry==${POETRY_VERSION}"
 
-# copy application data
-COPY FritzBoxInflux.py .
+ENV POETRY_NO_INTERACTION=1 \
+    POETRY_VIRTUALENVS_IN_PROJECT=1 \
+    POETRY_VIRTUALENVS_CREATE=1 \
+    POETRY_CACHE_DIR=/tmp/poetry_cache
 
-# run as `user` instead of root
-USER user
+WORKDIR /fritzbox_influx
 
-# run application
-CMD ["python3", "FritzBoxInflux.py"]
+COPY pyproject.toml poetry.lock ./
+RUN touch README.md
+
+RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --no-root
+
+
+############################################################
+# Stage 2: Install project on existing environment
+
+FROM python:3.13-slim as runtime
+
+ENV VIRTUAL_ENV=/fritzbox_influx/.venv \
+    PATH="/fritzbox_influx/.venv/bin:$PATH"
+
+COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
+
+COPY src /fritzbox_influx/
+
+ENTRYPOINT ["python", "-m", "fritzbox_influx.entrypoint"]

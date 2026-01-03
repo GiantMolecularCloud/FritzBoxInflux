@@ -73,3 +73,7 @@ def main(argv: list[str] | None = None) -> None:
 
     except KeyboardInterrupt:
         log.error("Program stopped by keyboard interrupt [CTRL_C] by user.")
+
+
+if __name__ == "__main__":
+    main()

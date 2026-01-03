@@ -35,5 +35,5 @@ jobs:
                   platforms: linux/amd64
                   push: true
                   tags: |
-                      giantmolecularcloud/poi-map:latest
-                      giantmolecularcloud/poi-map:${{ steps.get_version.outputs.version }}
+                      giantmolecularcloud/fritzboxinflux:latest
+                      giantmolecularcloud/fritzboxinflux:${{ steps.get_version.outputs.version }}
