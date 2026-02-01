@@ -19,7 +19,7 @@ fritzconnection = "^1.15.0"
 [tool.poetry.group.dev.dependencies]
 pydantic-settings = "2.12.0"
 autodoc_pydantic = ">=1.8,<3"
-black = "^25"
+black = "^26"
 coverage = {extras = ["toml"], version = "^7"}
 darglint = "^1.5.8"
 flake8 = "^7"
